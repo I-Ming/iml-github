@@ -49,30 +49,32 @@ public class DesignTacoController {
 		return new Taco();
 	}
 	
-	@GetMapping
-	public String showDesignForm(Model model) {		
+	@ModelAttribute
+	public void addIngredientsToModel(Model model) {
 		List<Ingredient> ingredients = new ArrayList<>();
 		ingredientRepo.findAll().forEach(i -> ingredients.add(i));
 
 		for (Type type : Ingredient.Type.values()) {
 			model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
 		}
-		
+	}
+	
+	@GetMapping
+	public String showDesignForm(Model model) {
 		return "design";
 	}
 	
 	@PostMapping
 	public String processDesign(
-			@Valid @ModelAttribute("taco") Taco taco, 
+			@Valid Taco taco, 
 			Errors errors,
-			@ModelAttribute("order") Order order) {
+			@ModelAttribute Order order) {
 		
 		if (errors.hasErrors()) {
 			return "design";
 		}
 
 		tacoRepo.save(taco);
-		log.info("Processing design: " + taco);
 		order.addDesign(taco);
 
 		return "redirect:/orders/current";

@@ -1,5 +1,6 @@
 package tacos.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,12 +15,12 @@ public class Taco {
 	private Long id;
 	private Date createdAt;
 	
-	@NotNull
+//	@NotNull(message = "Name is empty")
 	@Size(min = 5, message = "Name must be at least 5 characters long")
 	private String name;
 	
-	@NotNull
-	@Size(min = 1, message = "Tou must choose at least 1 ingredient")
-	private List<String> ingredients;
+//	@NotNull(message = "Ingredients is empty")
+	@Size(min= 1, message = "Tou must choose at least 1 ingredient")
+	private List<Ingredient> ingredients = new ArrayList<>();
 	
 }

@@ -3,7 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>Taco Cloud</title>
-<link rel="stylesheet" th:href="@{style.css}" />
+<link rel="stylesheet" th:href="@{styles.css}" />
 </head>
 
 <body>
@@ -21,36 +21,36 @@
 	
 		<h3>Deliver my taco masterpieces to...</h3>
 		<label for="name">Name: </label>
-		<input type="text" th:field="*{name}" />
-		<span class="validationError" th:if="${#fields.hasErrors('name')}" th:error="*{name}">
+		<input type="text" th:field="*{deliveryName}" />
+		<span class="validationError" th:if="${#fields.hasErrors('deliveryName')}" th:error="*{deliveryName}">
 			CC Num Error
 		</span>
 		<br />
 	
 		<label for="street">Street address: </label>
-		<input type="text" th:field="*{street}" />
-		<span class="validationError" th:if="${#fields.hasErrors('street')}" th:error="*{street}">
+		<input type="text" th:field="*{deliveryStreet}" />
+		<span class="validationError" th:if="${#fields.hasErrors('deliveryStreet')}" th:error="*{deliveryStreet}">
 			Street error
 		</span>
 		<br />
 
 		<label for="city">City: </label>
-		<input type="text" th:field="*{city}" />
-		<span class="validationError" th:if="${#fields.hasErrors('city')}" th:error="city">
+		<input type="text" th:field="*{deliveryCity}" />
+		<span class="validationError" th:if="${#fields.hasErrors('deliveryCity')}" th:error="deliveryCity">
 			City error
 		</span>
 		<br />
 
 		<label for="State">State: </label>
-		<input type="text" th:field="*{state}" />
-		<span class="validationError" th:if="${#fields.hasErrors('state')}" th:error="*{state}">
+		<input type="text" th:field="*{deliveryState}" />
+		<span class="validationError" th:if="${#fields.hasErrors('deliveryState')}" th:error="*{deliveryState}">
 			State error
 		</span>
 		<br />
 
 		<label for="zip">Zip code: </label>
-		<input type="text" th:field="*{zip}" />
-		<span class="validationError" th:if="${#fields.hasErrors('zip')}" th:error="*{zip}">
+		<input type="text" th:field="*{deliveryZip}" />
+		<span class="validationError" th:if="${#fields.hasErrors('deliveryZip')}" th:error="*{deliveryZip}">
 			Zip Code error
 		</span>
 		<br />
