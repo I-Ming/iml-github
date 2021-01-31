@@ -77,7 +77,7 @@ public class DesignTacoController {
 		tacoRepo.save(taco);
 		order.addDesign(taco);
 		
-		return "redirection:/users/order";
+		return "redirect:/orders/current";
 	}
 	
 	private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {

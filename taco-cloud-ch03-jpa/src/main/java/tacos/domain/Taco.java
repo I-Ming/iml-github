@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,13 +20,13 @@ import lombok.Data;
 public class Taco {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private Date createdAt;
-
 	@Size(min = 5, message = "Taco's name must have 5 characters at least")
 	private String name;
+	
+	private Date createdAt;
 	
 	@ManyToMany(targetEntity = Ingredient.class)
 	@Size(min = 1, message = "You must choose one ingredient at least")
@@ -35,5 +36,5 @@ public class Taco {
 	void createdAt() {
 		this.createdAt = new Date();
 	}
-	
+
 }

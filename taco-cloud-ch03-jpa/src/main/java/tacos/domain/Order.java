@@ -29,7 +29,7 @@ public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private Date placedAt;
@@ -38,7 +38,7 @@ public class Order implements Serializable {
 	private String deliveryName;
 	
 	@NotBlank(message = "Street is required")
-	private String deliverySrteet;
+	private String deliveryStreet;
 	
 	@NotBlank(message = "City is required")
 	private String deliveryCity;
