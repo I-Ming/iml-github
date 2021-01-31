@@ -37,7 +37,7 @@ public class Order {
 	@CreditCardNumber(message = "Not a valid credit card number")
 	private String ccNumber;
 	
-	@Pattern(regexp = "^(0[1-9]|1[0-2])([\\/])([1-9][0-9])$", message = "Must be aformatted MM/YY")
+	@Pattern(regexp = "^(0[1-9]|1[0-2])([\\/])([1-9][0-9])$", message = "Must be a formatted MM/YY")
 	private String ccExpiration;
 	
 	@Size(min = 3, max = 3, message = "CVV must 3 digit integer")
