@@ -48,10 +48,9 @@ public class JdbcTacoRepository implements TacoRepository {
 				Types.TIMESTAMP);
 		pscf.setReturnGeneratedKeys(true);
 
-		PreparedStatementCreator psc = pscf.newPreparedStatementCreator(
-				Arrays.asList(
-						taco.getName(), 
-						new Timestamp(taco.getCreatedAt().getTime())));
+		PreparedStatementCreator psc = pscf.newPreparedStatementCreator(Arrays.asList(
+				taco.getName(), 
+				new Timestamp(taco.getCreatedAt().getTime())));
 
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		jdbc.update(psc, keyHolder);
